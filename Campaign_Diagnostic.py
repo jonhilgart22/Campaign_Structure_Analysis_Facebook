@@ -9,32 +9,35 @@ import seaborn as sns
 import pandas as pd
 from pandas import Series,DataFrame
 import json
-import csv
+import csvkit.py2
 
 print "Hello World"
 
 
 #Turn csv into a JSON object
 
-csv_sc_df = open('C:\Users\Jonathan\Downloads\KV Report, Account hothead_04, 2015-07-15 - 2015-08-14.csv')
-json_sc_df = open("C:\Users\Jonathan\Downloads\KV Report, Account hothead_04, 2015-07-15 - 2015-08-14.json","w+")
+csv_sc_df = open('C:\Users\Jonathan\Downloads\HH-US_iPHone.csv')
 
+print csvkit.csvjson "C:\Users\Jonathan\Downloads\HH-US_iPHone.csv""
 
-fieldnames = ('\xef\xbb\xbf"Reporting Starts',"Reporting Ends","Campaign Name","Ad Set Name","Ad Name","Impressions","Amount Spent (USD)","Clicks","Gender","Age","Website Clicks [28 Days After Clicking]","Ad Set ID","Campaign ID","Mobile App Installs [28 Days After Clicking]","Ad ID")
-reader=csv.DictReader(csv_sc_df,fieldnames)
-
-#count the number of rows in the csv
-csv_count = 0
-for row in reader:
-    #print row
-    json.dump(row, json_sc_df)
-    json_sc_df.write('\n')
-    csv_count+=1
-print csv_count, "the number of rows convereted from the csv into JSON"
-
-json_data=(json_sc_df).read()
-json_sc = json.loads(json_data)
-print json_sc
+# json_sc_df = open("C:\Users\Jonathan\Downloads\KV Report, Account hothead_04, 2015-07-15 - 2015-08-14.json","w+")
+#
+#
+# fieldnames = ('\xef\xbb\xbf"Reporting Starts"',"Reporting Ends","Campaign Name","Ad Set Name","Ad Name","Impressions","Amount Spent (USD)","Clicks","Gender","Age","Website Clicks [28 Days After Clicking]","Ad Set ID","Campaign ID","Mobile App Installs [28 Days After Clicking]","Ad ID")
+# reader=csv.DictReader(csv_sc_df,fieldnames)
+#
+# #count the number of rows in the csv
+# csv_count = 0
+# for row in reader:
+#     #print row
+#     json.dump(row, json_sc_df)
+#     json_sc_df.write('\n')
+#     csv_count+=1
+# print csv_count, "the number of rows converted from the csv into JSON"
+#
+# json_data=(json_sc_df).read()
+# json_sc = json.loads(json_data)
+# print json_sc
 
 
 
