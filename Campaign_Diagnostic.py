@@ -9,22 +9,17 @@ import seaborn as sns
 import pandas as pd
 from pandas import Series,DataFrame
 import json
-import csvkit.py2
+import csvkit
 
 print "Hello World"
 
 
 #Turn csv into a JSON object
 
-csv_sc_df = open('C:\Users\Jonathan\Downloads\HH-US_iPHone.csv')
+hh_04 = pd.read_json('C:\Users\Jonathan\Downloads\convertcsv.json')
+print hh_04.head()
 
-print csvkit.csvjson "C:\Users\Jonathan\Downloads\HH-US_iPHone.csv""
 
-# json_sc_df = open("C:\Users\Jonathan\Downloads\KV Report, Account hothead_04, 2015-07-15 - 2015-08-14.json","w+")
-#
-#
-# fieldnames = ('\xef\xbb\xbf"Reporting Starts"',"Reporting Ends","Campaign Name","Ad Set Name","Ad Name","Impressions","Amount Spent (USD)","Clicks","Gender","Age","Website Clicks [28 Days After Clicking]","Ad Set ID","Campaign ID","Mobile App Installs [28 Days After Clicking]","Ad ID")
-# reader=csv.DictReader(csv_sc_df,fieldnames)
 #
 # #count the number of rows in the csv
 # csv_count = 0
