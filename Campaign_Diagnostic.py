@@ -67,5 +67,13 @@ for row in hh_04['Ad Set ID']:
         all_ad_set_ids.append(row)
 print "count of unique ad sets",count_of_unique_ad_sets
 
+#find ad sets for each unique campaign id
+campaign_ad_set_combo = {}
+
+for campaignid in unique_campaign_ids:
+    for item in unique_ad_sets:
+        
+
+
 
 
