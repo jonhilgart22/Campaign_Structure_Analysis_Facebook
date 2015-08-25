@@ -54,14 +54,14 @@ print "total campaign count",total_count
 #Next, match up individual ad set ids to these campaign ids
 
 
-unique_ad_sets = []
+unique_ad_set_ids = []
 all_ad_set_ids=[]
 count_of_unique_ad_sets = 0
 total_ad_sets = 0
 for row in hh_04['Ad Set ID']:
     total_ad_sets +=1
-    if row not in unique_ad_sets:
-        unique_ad_sets.append(row)
+    if row not in unique_ad_set_ids:
+        unique_ad_set_ids.append(row)
         count_of_unique_ad_sets+=1
     else:
         all_ad_set_ids.append(row)
@@ -73,7 +73,7 @@ campaign_ad_set_combo = {}
 
 for campaign_id in unique_campaign_ids:
     campaign_ad_set_combo.setdefault(campaign_id,[])
-    for ad_set_id in unique_ad_sets:
+    for ad_set_id in unique_ad_set_ids:
         campaign_ad_set_combo[campaign_id].append(ad_set_id)
         #print campaign_id,"campaignid"
         #print ad_id,"ad id"
@@ -83,7 +83,7 @@ campaign_ad_set_combo = DataFrame(campaign_ad_set_combo)
 print campaign_ad_set_combo.head() , "data frame ad set combo"
 
 
-#Now, find the ads associated with each ad set
+#Now, find the unique ads
 
 unique_ad_ids = []
 count_ad_ids = 0
@@ -93,6 +93,17 @@ for row in hh_04['Ad ID']:
         unique_ad_ids.append(row)
         count_ad_ids +=1
 print count_ad_ids, "total number of ads"
+
+#Match ads with each ad set
+
+ad_set_id_ad_id_combo = {}
+
+for ad_set_id in unique_ad_set_ids:
+    ad_set_id_ad_id_combo.setdefault(ad_set_id,[])
+    for ad_id in unique_ad_ids:
+        ad_set_id_ad_id_combo[ad_set_id].append(ad_id)
+
+print ad_set_id_ad_id_combo,\"ad set id combo"
 
 
 
