@@ -73,8 +73,8 @@ campaign_ad_set_combo = {}
 
 for campaign_id in unique_campaign_ids:
     campaign_ad_set_combo.setdefault(campaign_id,[])
-    for ad_id in unique_ad_sets:
-        campaign_ad_set_combo[campaign_id].append(ad_id)
+    for ad_set_id in unique_ad_sets:
+        campaign_ad_set_combo[campaign_id].append(ad_set_id)
         #print campaign_id,"campaignid"
         #print ad_id,"ad id"
 print campaign_ad_set_combo
